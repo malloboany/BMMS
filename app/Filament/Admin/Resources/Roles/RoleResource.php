@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 
 class RoleResource extends Resource
 {
@@ -44,5 +45,30 @@ class RoleResource extends Resource
             'create' => CreateRole::route('/create'),
             'edit' => EditRole::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->can('manage roles') ?? false;
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->can('manage roles') ?? false;
+    }
+
+    public static function canEdit(Model $record): bool
+    {
+        return auth()->user()?->can('manage roles') ?? false;
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return auth()->user()?->can('manage roles') ?? false;
+    }
+
+    public static function canDeleteAny(): bool
+    {
+        return auth()->user()?->can('manage roles') ?? false;
     }
 }

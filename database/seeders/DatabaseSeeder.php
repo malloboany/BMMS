@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             'manage users',
             'manage roles',
             'manage permissions',
+            'manage service types',
+            'manage bookings',
         ];
 
         foreach ($permissions as $permissionName) {
