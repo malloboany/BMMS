@@ -1,17 +1,11 @@
 # BMMS
 Booking Management Mini System
 
-## How to login dashboard
-
-- Go to `http://localhost/admin/login`
-- Use:
-  - Email: `admin@example.com`
-  - Password: `password`
 
 ## Installation
 
 1. Clone the repository:
-   - `git clone <repo-url>`
+   - `git clone https://github.com/malloboany/BMMS.git`
    - `cd BMMS`
 2. Install PHP dependencies:
    - `composer install`
@@ -26,8 +20,16 @@ Booking Management Mini System
    - `npm install`
    - `npm run build`
 6. Start the application:
-   - `php artisan serve --port=8001`
-   - Dashboard: `http://localhost:8001/admin`
+   - `php artisan serve --port=8000`
+   - Landing page: `http://localhost:8000/`
+   - Dashboard: `http://localhost:8000/admin`
+   
+## How to login dashboard
+
+- Go to `http://localhost/admin/login`
+- Use:
+  - Email: `admin@example.com`
+  - Password: `password`
 
 ## System structure
 
