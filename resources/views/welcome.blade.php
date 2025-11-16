@@ -61,8 +61,8 @@
                     <li>• Designed for Illaftrain training centers</li>
                 </ul>
                 <div class="flex flex-wrap gap-3">
-                    <a href="{{ url('/login') }}"
-                        class="inline-flex items-center px-5 py-2.5 rounded-md bg-primary-600 text-white text-sm font-medium hover:bg-primary-700">
+                    <a href="{{ url('/admin') }}"
+                        class="inline-flex items-center px-5 py-2.5 rounded-md bg-primary-600  text-sm font-medium hover:bg-primary-700">
                         Log in to dashboard
                     </a>
                     <a href="#about-us"
@@ -140,10 +140,6 @@
                     extended
                     with role‑based permissions using Filament.
                 </p>
-                <p class="text-sm text-slate-700">
-                    When this project goes to production, a full privacy policy page can be added linking to your
-                    organization’s official terms and data‑protection guidelines.
-                </p>
             </div>
         </section>
 
@@ -182,7 +178,10 @@
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
             <p>© {{ date('Y') }} Booking Management System for Illaftrain. All rights reserved.</p>
             <p class="text-slate-400">
-                Built with Laravel &amp; Filament by Mohammed Alloboany.
+                Built with Laravel &amp; Filament by <a href="https://www.linkedin.com/in/mohammed-alloboany/"
+                    target="_blank" rel="noopener noreferrer">
+                    Mohammed Alloboany.
+                </a>
             </p>
         </div>
     </footer>
