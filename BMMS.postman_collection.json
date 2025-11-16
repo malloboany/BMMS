@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "94768b10-8e72-4dff-8f3c-a2206507e7f4",
+		"name": "BMMS",
+		"description": "### Booking Request Body\n\n| Field            | Type    | Description                                                                 |\n|------------------|---------|-----------------------------------------------------------------------------|\n| customer_name    | string  | Customer's name. Must be between 3 and 250 characters.                      |\n| phone            | string  | Phone number. Only digits and + allowed (e.g., \"+1234567890\").              |\n| booking_date     | string  | Booking date in format YYYY-MM-DD HH:MM:SS (e.g., \"2025-12-01 14:30:00\").   |\n| service_type_id  | integer | Service type identifier.                                                    |\n| notes            | string  | Optional notes. Can be null.                                                |\n\n#### Example JSON\n\n```json\n{\n  \"customer_name\": \"Fadi\",\n  \"phone\": \"+991298549\",\n  \"booking_date\": \"2025-12-01 14:30:00\",\n  \"service_type_id\": 1,\n  \"notes\": null\n}\n```\n\n#### Field Validation\n\n- **customer_name**: 3–250 characters.\n- **phone**: Only numbers and + sign allowed.\n- **booking_date**: Must match YYYY-MM-DD HH:MM:SS.\n- **service_type_id**: Integer.\n- **notes**: Nullable.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37747341",
+		"_collection_link": "https://mkook6.postman.co/workspace/mkook-Workspace~804cad1b-504f-47e2-995b-2903260d1ed3/collection/37747341-94768b10-8e72-4dff-8f3c-a2206507e7f4?action=share&source=collection_link&creator=37747341"
+	},
+	"item": [
+		{
+			"name": "services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/services",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"services"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8001/api/services",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"services"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8001"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Nov 2025 18:45:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"consultant\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Text plan\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"video call\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"voice call\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "bookings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_name\" : \"Fadi\",\n    \"phone\" : \"991298549\",\n    \"booking_date\" : \"2025-12-01\",\n    \"service_type_id\" : 1,\n    \"notes\" : null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8001/api/bookings",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"bookings"
+					]
+				},
+				"description": "### Booking Request Body\n\n| Field            | Type    | Description                                                                 |\n|------------------|---------|-----------------------------------------------------------------------------|\n| customer_name    | string  | Customer's name. Must be between 3 and 250 characters.                      |\n| phone            | string  | Phone number. Only digits and + allowed (e.g., \"+1234567890\").              |\n| booking_date     | string  | Booking date in format YYYY-MM-DD HH:MM:SS (e.g., \"2025-12-01 14:30:00\").   |\n| service_type_id  | integer | Service type identifier.                                                    |\n| notes            | string  | Optional notes. Can be null.                                                |\n\n#### Example JSON\n\n```json\n{\n  \"customer_name\": \"Fadi\",\n  \"phone\": \"+991298549\",\n  \"booking_date\": \"2025-12-01 14:30:00\",\n  \"service_type_id\": 1,\n  \"notes\": null\n}\n```\n\n#### Field Validation\n\n- **customer_name**: 3–250 characters.\n- **phone**: Only numbers and + sign allowed.\n- **booking_date**: Must match YYYY-MM-DD HH:MM:SS.\n- **service_type_id**: Integer.\n- **notes**: Nullable.\n"
+			},
+			"response": [
+				{
+					"name": "422 validation error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_name\" : \"f\",\n    \"phone\" : \"991298549\",\n    \"booking_date\" : \"2025-12-01\",\n    \"service_type_id\" : 1,\n    \"notes\" : null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8001/api/bookings",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8001"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Nov 2025 19:00:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"code\": 422,\n    \"message\": \"The customer name field must be at least 3 characters.\",\n    \"data\": {\n        \"customer_name\": [\n            \"The customer name field must be at least 3 characters.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_name\" : \"Fadi\",\n    \"phone\" : \"991298549\",\n    \"booking_date\" : \"2025-12-01\",\n    \"service_type_id\" : 1,\n    \"notes\" : null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8001/api/bookings",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8001",
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8001"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Nov 2025 19:01:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"code\": 201,\n    \"message\": \"Booking created successfully.\",\n    \"data\": {\n        \"customer_name\": \"Fadi\",\n        \"phone\": \"991298549\",\n        \"booking_date\": \"2025-12-01T00:00:00.000000Z\",\n        \"service_type_id\": 1,\n        \"notes\": null,\n        \"status\": \"pending\",\n        \"updated_at\": \"2025-11-16T19:01:05.000000Z\",\n        \"created_at\": \"2025-11-16T19:01:05.000000Z\",\n        \"id\": 3,\n        \"service_type\": {\n            \"id\": 1,\n            \"name\": \"consultant\"\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Validate status code",
+					"pm.test(\"Status code is valid\", function () {",
+					"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204, 400, 401, 403, 404, 422, 500]);",
+					"});",
+					"",
+					"// Validate Content-Type header",
+					"pm.test(\"Content-Type is present and correct\", function () {",
+					"    pm.response.to.have.header(\"Content-Type\");",
+					"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/(json|problem\\+json|octet-stream|pdf|xml|zip|x-www-form-urlencoded|vnd\\.api\\+json)/);",
+					"});",
+					"",
+					"// Validate response body structure for JSON responses",
+					"if (pm.response.headers.get(\"Content-Type\") && pm.response.headers.get(\"Content-Type\").includes(\"application/json\")) {",
+					"    let jsonData;",
+					"    try {",
+					"        jsonData = pm.response.json();",
+					"    } catch (e) {",
+					"        jsonData = null;",
+					"    }",
+					"    pm.test(\"Response body is valid JSON\", function () {",
+					"        pm.expect(jsonData).to.not.be.undefined;",
+					"        pm.expect(jsonData).to.not.be.null;",
+					"    });",
+					"    ",
+					"    // Check for common API response fields",
+					"    pm.test(\"Response has success indicator\", function () {",
+					"        pm.expect(jsonData).to.have.any.keys(\"success\", \"status\", \"code\");",
+					"    });",
+					"    pm.test(\"Response has message or error field\", function () {",
+					"        pm.expect(jsonData).to.have.any.keys(\"message\", \"error\", \"errors\");",
+					"    });",
+					"    // If data is present, check its type",
+					"    if (jsonData.hasOwnProperty(\"data\")) {",
+					"        pm.test(\"Response has data field\", function () {",
+					"            pm.expect(jsonData.data).to.not.be.undefined;",
+					"        });",
+					"        pm.test(\"Data field is object or array\", function () {",
+					"            pm.expect([\"object\", \"array\"]).to.include(Array.isArray(jsonData.data) ? \"array\" : typeof jsonData.data);",
+					"        });",
+					"    }",
+					"}",
+					"",
+					"// Validate error structure for 4xx/5xx",
+					"if (pm.response.code >= 400) {",
+					"    let jsonData;",
+					"    try {",
+					"        jsonData = pm.response.json();",
+					"    } catch (e) {",
+					"        jsonData = null;",
+					"    }",
+					"    pm.test(\"Error response has error or message field\", function () {",
+					"        pm.expect(jsonData).to.have.any.keys(\"error\", \"message\", \"errors\");",
+					"    });",
+					"}",
+					""
+				]
+			}
+		}
+	]
+}
