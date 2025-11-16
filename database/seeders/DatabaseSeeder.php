@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Permission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +17,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $adminRole = Role::firstOrCreate(
+            ['name' => 'admin', 'guard_name' => 'web'],
+        );
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $permissions = [
+            'manage users',
+            'manage roles',
+            'manage permissions',
+        ];
+
+        foreach ($permissions as $permissionName) {
+            $permission = Permission::firstOrCreate(
+                ['name' => $permissionName, 'guard_name' => 'web'],
+            );
+
+            $adminRole->givePermissionTo($permission);
+        }
+
+        $admin = User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin',
+                'password' => 'password',
+            ],
+        );
+
+        $admin->assignRole($adminRole);
     }
 }
